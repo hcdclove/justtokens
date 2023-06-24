@@ -1,3 +1,11 @@
+// ******************JustApp*****************
+// A Just token dispenser for users to request free tokens to be used in the justDapps
+// like the JustApp Messenger.
+//
+// Author: Hernan Clarke
+// Using ReachJS to build the front end
+// Language: Javascript and Motoko
+
 import React, { useState } from 'react';
 import { canisterId, createActor } from '../../../declarations/token';
 import { AuthClient } from '@dfinity/auth-client';

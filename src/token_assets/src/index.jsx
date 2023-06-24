@@ -1,8 +1,16 @@
-import ReactDOM from "react-dom";
-import React from "react";
-import App from "./components/App";
-import { AuthClient } from "@dfinity/auth-client";
-import { Principal } from "@dfinity/principal";
+// ******************JustApp*****************
+// A Just token dispenser for users to request free tokens to be used in the justDapps
+// like the JustApp Messenger.
+//
+// Author: Hernan Clarke
+// Using ReachJS to build the front end
+// Language: Javascript and Motoko
+
+import ReactDOM from 'react-dom';
+import React from 'react';
+import App from './components/App';
+import { AuthClient } from '@dfinity/auth-client';
+import { Principal } from '@dfinity/principal';
 
 const init = async () => {
   const authClient = await AuthClient.create();
@@ -11,10 +19,10 @@ const init = async () => {
     handleAuthenticated(authClient);
   } else {
     await authClient.login({
-      identityProvider: "https://identity.ic0.app/#authorize",
+      identityProvider: 'https://identity.ic0.app/#authorize',
       onSuccess: () => {
         handleAuthenticated(authClient);
-      },
+      }
     });
   }
 };
@@ -25,7 +33,7 @@ async function handleAuthenticated(authClient) {
   console.log(userPrincipal);
   ReactDOM.render(
     <App loggedInPrincipal={userPrincipal} />,
-    document.getElementById("root")
+    document.getElementById('root')
   );
 }
 
